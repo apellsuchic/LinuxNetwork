@@ -54,7 +54,7 @@
 - ![Part_2](scrins/image1.png "Network interfacy ws1") Сетевой интерфейс первой машины(ws1)
 - ![Part_2](scrins/image2.png "Network interfacy ws2") Сетевой интерфейс второй машины(ws2)
 
-### Сетевой интерфес ws1
+__Сетевой интерфес ws1__:
 
 - Имя интерфейса __enp0s3__. Это название указывает на проводное интернет соединение, которое эмулирует VirtualBox.
   - __BROADCAST__: Означает, что интерфейс может отправлять сообщения всем в сети.
@@ -82,7 +82,7 @@
   - __fe80::a00:27ff:fe24:28db/64__: Это *IPv6-адрес* компьютера.
   - __scope link__: Означает, что IPv6-адрес действителен только в пределах локальной сети.
 
-### Сетевой интерфейс ws2
+__Сетевой интерфейс ws2__:
 
 - Имя интерфейса __enp0s3__. Это название указывает на проводное интернет соединение, которое эмулирует VirtualBox.
   - Mac-адрес: *08:00:27:10:b7:ec*
@@ -100,11 +100,37 @@
 - ![Part_2](scrins/image5.png "Update interfsce setting(ws1)") Обновление настроек сетевого интерфейса(ws1)
 - ![Part_2](scrins/image6.png "Update interfsce setting(ws2)") Обновление настроек сетевого интерфейса(ws2)
 
+### 2.1. Добавление статического маршрута вручную
+
 - ![Part_2](scrins/image7.png "Add new static route and pinging it(ws1)") Добовление нового статического маршрута и его пропинговка(ws1)
 - ![Part_2](scrins/image8.png "Add new static route and pinging it(ws2)") Добовление нового статического маршрута и его пропинговка(ws2)
+
+### 2.2. Добавление статического маршрута с сохранением
 
 - ![Part_2](scrins/image9.png "Add new static route and pinging it and save it(ws1)") Добовление нового статического маршрута и его пропинговка, а так же его сохранение навсегда(ws1)
 - ![Part_2](scrins/image10.png "Add new static route and pinging it and save it(ws2)") Добовление нового статического маршрута и его пропинговка, а так же его сохранение навсегда(ws2)
 
 - ![Part_2](scrins/image11.png "Pinging new route(ws1)") Пропинговка нового постояннного маршрута(ws1)
 - ![Part_2](scrins/image12.png "Pinging new route(ws2)") Пропинговка нового постоянного маршрута(ws2)
+
+---
+
+## Part_3: Utility iperf3
+
+### 3.1. Скорость соединения
+
+>1 Mbps == 0.125 MB/s
+
+- 8 Mbps == 1 MB/s
+- 100 MB/s == 800000 Kbps
+- 1 Gbps == 1000 Mbps
+
+### 3.2. Утилита iperf3
+
+- ![Part_3](scrins/image13.png "Speed test network(ws1)") Тест скорости соеденения между ws1(сервер) и ws2(клиент) - ws1
+- ![Part_3](scrins/image14.png "Speed test network(ws2)") Тест скорости соеденения между ws1(сервер) и ws2(клиент) - ws2
+
+---
+
+## Part_4: firewall(Сетевой экран, брандмауэр)
+
