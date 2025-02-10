@@ -155,3 +155,61 @@ __4.2. Утилита nmap__:
 
 ## Part_5: Static route network
 
+__5.1. Setting up machine addresses__:
+
+- ![Part_5](scrins/image20.png "Static ip address(ws11)") Статическая настройка IP-адресов для машины ws11
+- ![Part_5](scrins/image21.png "Static ip address(ws21)") Статическая настройка IP-адресов для машины ws21
+- ![Part_5](scrins/image22.png "Static ip address(ws22)") Статическая настройка IP-адресов для машины ws22
+- ![Part_5](scrins/image24.png "Static ip address(r1)") Статическая настройка IP-адресов для машины r1
+- ![Part_5](scrins/image25.png "Static ip address(r2)") Статическая настройка IP-адресов для машины r2
+
+- ![Part_5](scrins/image26.png "Restart and pinging r1 with ws11(r1)") Перезапуск, вывод нового IP и пропинговка r1 c ws11 (r1)
+- ![Part_5](scrins/image27.png "Restart and pinging ws22 with ws21(ws22)") Перезапуск, вывод нового IP и пропинговка ws22 c ws21 (ws21)
+- ![Part_5](scrins/image28.png "Restart and valid new setting ip(ws21)") Перезапуск, и проверка новых настроек ip(ws22)
+- ![Part_5](scrins/image29.png "Restart and valid new setting ip(ws11)") Перезапуск, и проверка новых настроек ip(ws11)
+- ![Part_5](scrins/image30.png "Restart and valid new setting ip(r2)") Перезапуск, и проверка новых настроек ip(r2)
+
+__5.2. Enabling IP forwarding(Включение переодрисации IP-адресов)__:
+
+- ![Part_5](scrins/image31.png "Temporary enable ip forwarding (r1)") Временное разрешение пересылки пакетов между двумя интерфейсами (r1)
+- ![Part_5](scrins/image32.png "Temporary enable ip forwarding (r2)") Временное разрешение пересылки пакетов между двумя интерфейсами (r2)
+
+- ![Part_5](scrins/image33.png "Сonstant changes in settings(r1)") Постоянное разрешение пересылки пакетов между двумя интерфейсами (r1)
+- ![Part_5](scrins/image34.png "Сonstant changes in settings(r2)") Постоянное разрешение пересылки пакетов между двумя интерфейсами (r2)
+
+__5.3.Setting the default route__:
+
+- ![Part_5](scrins/image35.png "Setting the default route(ws11)") Установка gateway по-умолчанию для машины ws11(В данном случае это делается по новым правилам netplan)
+- ![Part_5](scrins/image36.png "Setting the default route(ws21)") Установка gateway по-умолчанию для машины ws21(В данном случае это делается по новым правилам netplan)
+- ![Part_5](scrins/image37.png "Setting the default route(ws22)") Установка gateway по-умолчанию для машины ws22(В данном случае это делается по новым правилам netplan)
+
+- ![Part_5](scrins/image38.png "Output all routes(ws11)") Вывод всех маршрутов в машине ws11
+- ![Part_5](scrins/image39.png "Output all routes(ws21)") Вывод всех маршрутов в машине ws21
+- ![Part_5](scrins/image40.png "Output all routes(ws22)") Вывод всех маршрутов в машине ws22
+
+- ![Part_5](scrins/image41.png "Pinging r2 with ws11(ws11)") Пропинговка r2 c ws11 (ws11)
+- ![Part_5](scrins/image42.png "tcpdump -tn -i enp0s3(r2)") Прослушивание пинга приходящего с ws11(r2)
+
+__5.4.Adding static routes__:
+
+- ![Part_5](scrins/image43.png "Adding new static routes(r1)") Добовление маршрута между двумя локальными сетями(r1)
+- ![Part_5](scrins/image44.png "Adding new static routes(r2)") Добовление маршрута между двумя локальными сетями(r2)
+
+- ![Part_5](scrins/image45.png "Output route tables(r1)") Вывод таблицы маршрутизации(r1)
+- ![Part_5](scrins/image46.png "Output route tables(r2)") Вывод таблицы маршрутизации(r2)
+
+- ![Part_5](scrins/image47.png "ip r list 10.10.0.0/[маска сети] и ip r list 0.0.0.0/0(ws11)") Вывод определённых маршрутов(ws11)
+
+- > Когда система получает команду отправки пакета данных, она сравнивает маски сетей, которые указаны в таблице маршрутизации, если сущетвует два подходящих маршрута, то программа выберет тот маршрут, который будет иметь наибольший битовый IP-адрес(10.10.0.0 */18* или 0.0.0.0 */0*). Это называется Longest prefix match.
+
+__5.5. Building a list of routes__:
+
+- ![Part_5](scrins/image48.png "Listening system(r1)") Прослушивание сигналов(r1) tcpdump
+- ![Part_5](scrins/image49.png "Route research to ws21 (ws11)") Иследование маршрута от машины ws11 до ws21(ws11) traceroute
+
+- > Утилита traceroute отправляет пакет с параметром TTL, который определяет время жизни пакета. Это значит,что если TTL=1, пакет, дойдёт до первого маршрутизатора, и вернется обратно с информацией о этом маршрутизаторе. Далее после возвращения пакета на главное host-устройство, параметр TTL становиться равен 2 и имеет возможность пройти уже два маршрутизатора между точками назначения. Если он доходит, до второго маршрутизатора и это оказывается не пункт назначения, он так же возвращается обратно, принося с собой данные об втором маршрутизаторе. Все это повторяется до того момента, пока пакет не достигнет устройства с адресом назначения.
+
+__5.6. Usening ICMP protocol at routes__:
+
+- ![Part_5](scrins/image50.png "network traffic interception(r1)") Перехват сетевого трафика(r1) tcpdump
+- ![Part_5](scrins/image51.png "Pinging non-existent ip(ws11)") Пропинговка несущетвующего ip(ws11)
