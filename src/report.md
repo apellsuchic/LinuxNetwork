@@ -213,3 +213,34 @@ __5.6. Usening ICMP protocol at routes__:
 
 - ![Part_5](scrins/image50.png "network traffic interception(r1)") Перехват сетевого трафика(r1) tcpdump
 - ![Part_5](scrins/image51.png "Pinging non-existent ip(ws11)") Пропинговка несущетвующего ip(ws11)
+
+---
+
+## Part_6: DHCP
+
+- ![Part_6](scrins/image52.png "/etc/dhcp/dhcpd.conf <r2>") Настройка конфигурации для dhcp сервера(r2)
+- ![Part_6](scrins/image53.png "/etc/resolve.conf <r2>") Изменение dns-сервера(r2)
+- ![Part_6](scrins/image54.png "Restart isc-dhcp-server <r2>") Перезагрузка dhcp-сервера(r2)
+- ![Part_6](scrins/image55.png "Output network inteface <ws21>") Вывод нового ip, полученного от dhcp сервера на r2 (ws21)
+- ![Part_6](scrins/image56.png "Pinging ws21 <ws22>") Пропинговка ws21 по новому ip(ws22)
+
+- ![Part_6](scrins/image57.png "Netplan setting <ws11>") Включение динамической адресации и связование конфигурации настроек с mac-адресом сетевого интерфейса(ws11)
+
+- ![Part_6](scrins/image58.png "/etc/dhcp/dhcpd.conf <r1>") Настройка конфигурации для dhcp сервера с привязкой ip к опредёлённому интерфейсу с помощью mac-address(r1)
+- ![Part_6](scrins/image59.png "/etc/resolve.conf <r1>") Изменение dns-сервера(r1)
+- ![Part_6](scrins/image60.png "Restart isc-dhcp-server <r1>") Перезагрузка dhcp-сервера(r1)
+- ![Part_6](scrins/image61.png "Output network inteface <ws11>") Вывод нового ip, полученного от dhcp сервера на r2 (ws11)
+- ![Part_6](scrins/image62.png "Pinging ws11 <r1>") Пропинговка ws11 по новому ip(r1)
+
+- ![Part_6](scrins/image63.png "old ip<ws21>") Изначальный ip(ws21)
+- ![Part_6](scrins/image64.png "Request update ip<ws21>") Запрос нового ip у dhcp-сервера(ws21)
+
+- Настраивая dhcp-сервер я использовал для настроек:
+  - Маска подсети: Option 1;
+  - Основной шлюз: Option 3;
+  - Адрес сервера DNS: Option 6;
+
+---
+
+## Part_7: NAT
+
