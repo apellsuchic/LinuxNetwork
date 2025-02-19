@@ -254,9 +254,8 @@ __5.6. Usening ICMP protocol at routes__:
 - ![Part_7](scrins/image71.png "Firewall settings<r2>") Правила обработки трафика /etc/firewall.sh(r1)
 
 - ![Part_7](scrins/image72.png "Testing connection with web-server on r1<ws22>") Проверка соединения с веб-сервером на машине r1, по внешнему адресу(ws22)
-- - ![Part_7](scrins/image73.png "Testing connection with web-server on ws22<r1>") Проверка соединения с веб-сервером на машине ws22, по внешнему адресу с помощью DNAT(r1)
+- ![Part_7](scrins/image73.png "Testing connection with web-server on ws22<r1>") Проверка соединения с веб-сервером на машине ws22, по внешнему адресу с помощью DNAT(r1)
 
 ---
 
 ## Part_8: SSH Tunnels
-
