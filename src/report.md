@@ -282,7 +282,7 @@ __5.6. Usening ICMP protocol at routes__:
 
 ### Remote TCP forwarding
 
-- > ssh -R [REMOTE:]REMOTE_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER] __WE WEB-SERVER__
+-  `ssh -R [REMOTE:]REMOTE_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER] __WE WEB-SERVER__`
 
 - ssh adm-ws22@10.10.0.50 -R 8080:localhost:80
   - __В этом случае мы производим подключение с ssh-клиента, на котором рабоатет веб-сервер и предоставляем к нему доступ, путём перенаправления трафика через ssh-сервер, к которому мы подключаемся__
