@@ -113,7 +113,7 @@ iptables -X
 **== Задание ==**
 
 Сеть: \
-![part5_network](misc/images/part5_network.png)
+![part5_network](part5_network.png)
 
 ##### Подними пять виртуальных машин (3 рабочие станции (ws11, ws21, ws22) и 2 роутера (r1, r2)).
 
